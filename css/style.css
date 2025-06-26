@@ -1,0 +1,143 @@
+/* --- General Styling --- */
+body { 
+  font-family: Arial, sans-serif; 
+  margin: 0; 
+  padding: 0; 
+  background: #f4f4f4; 
+  color: #333; 
+}
+
+header, footer { 
+  background: #2d2d2d; 
+  color: #fff; 
+  text-align: center; 
+  padding: 20px; 
+}
+
+nav a { 
+  margin: 0 15px; 
+  color: #00bcd4; 
+  text-decoration: none; 
+}
+
+.container { 
+  max-width: 1000px; 
+  margin: auto; 
+  padding: 20px; 
+}
+
+.section { 
+  background: #fff; 
+  padding: 20px; 
+  margin: 20px 0; 
+  border-radius: 4px; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+
+.section h2 { 
+  border-left: 5px solid #00bcd4; 
+  padding-left: 10px; 
+  margin-top: 0;
+}
+
+.button { 
+  display: inline-block; 
+  padding: 10px 20px; 
+  background: #00bcd4; 
+  color: #fff; 
+  text-decoration: none; 
+  border-radius: 4px; 
+  margin-top: 10px; 
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0097a7;
+}
+
+ul { 
+  list-style: none; 
+  padding: 0; 
+}
+
+ul li::before { 
+  content: '•'; 
+  color: #00bcd4; 
+  display: inline-block; 
+  width: 1em; 
+  margin-left: -1em;
+}
+
+ul li {
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* --- Portfolio Section --- */
+.portfolio-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 20px; 
+}
+
+.portfolio-item {
+  position: relative; /* Diperlukan untuk memposisikan overlay */
+  border-radius: 4px;
+  overflow: hidden; /* Menyembunyikan bagian gambar yang membesar */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: #fafafa;
+  height: 250px; /* Anda bisa sesuaikan tinggi kartu portofolio */
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Memastikan gambar mengisi ruang tanpa distorsi */
+  transition: transform 0.4s ease; /* Transisi untuk efek zoom */
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(45, 45, 45, 0.85); /* Latar belakang overlay semi-transparan */
+  color: #fff;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  opacity: 0; /* Sembunyikan overlay secara default */
+  transform: scale(0.9); /* Efek muncul dari kecil */
+  transition: opacity 0.4s ease, transform 0.4s ease; /* Transisi untuk memunculkan overlay */
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1; /* Tampilkan overlay saat di-hover */
+  transform: scale(1); /* Kembali ke ukuran normal */
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.1); /* Sedikit zoom pada gambar saat di-hover */
+}
+
+.portfolio-overlay h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #fff; /* Pastikan judul terlihat jelas */
+}
+
+.portfolio-overlay p {
+  color: #f4f4f4; /* Warna teks deskripsi yang lebih lembut */
+  font-size: 0.9em;
+  margin: 0 0 15px 0;
+}
+
